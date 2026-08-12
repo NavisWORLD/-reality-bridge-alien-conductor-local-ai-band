@@ -1,0 +1,71 @@
+name: Publish Word engineering book
+
+on:
+  push:
+    paths:
+      - ".github/workflows/publish-word-book.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-word-book:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install Pandoc
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+      - name: Assemble book source
+        shell: bash
+        run: |
+          cat \
+            docs/book/00-front-matter.md \
+            docs/book/01-system.md \
+            docs/book/02-real-time-kernel.md \
+            docs/book/03-listener.md \
+            docs/book/04-musicians.md \
+            docs/book/05-band-intelligence.md \
+            docs/book/06-implementation.md \
+            docs/book/07-testing-validation.md \
+            docs/book/08-shipping-open-project.md \
+            > /tmp/alien-conductor-book.md
+
+      - name: Generate DOCX
+        shell: bash
+        run: |
+          pandoc /tmp/alien-conductor-book.md \
+            --from=gfm \
+            --to=docx \
+            --standalone \
+            --toc \
+            --metadata title="Reality Bridge // Alien Conductor" \
+            --metadata subtitle="Local AI Band Engineering Manual" \
+            --metadata author="Cory Davis (NavisWORLD)" \
+            -o docs/Reality_Bridge_Alien_Conductor_Local_AI_Band_Engineering_Book.docx
+          test -s docs/Reality_Bridge_Alien_Conductor_Local_AI_Band_Engineering_Book.docx
+          file docs/Reality_Bridge_Alien_Conductor_Local_AI_Band_Engineering_Book.docx
+
+      - name: Remove temporary transfer material
+        shell: bash
+        run: |
+          rm -rf .book-build
+
+      - name: Commit published Word edition
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing to publish."
+            exit 0
+          fi
+          git commit -m "Publish Word engineering book"
+          git push
