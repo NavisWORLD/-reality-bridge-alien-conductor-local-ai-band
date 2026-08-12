@@ -1,176 +1,184 @@
-# Reality Bridge / Alien Conductor
+# Reality Bridge // Alien Conductor
 
-> **Portfolio release:** a local-first adaptive music and virtual-band architecture for real-time human accompaniment.
+## Local AI Band + Real-Time Sing-and-Play Accompaniment
 
-## Local AI Band Engineering Architecture
+**Reality Bridge // Alien Conductor** is an open-source engineering project for turning a local computer, browser, or mobile device into a responsive collection of digital musicians that listen before deciding what to play.
 
-**Reality Bridge / Alien Conductor** is a local-first, real-time generative music architecture for building digital musicians that listen before deciding what to play.
+The system is designed around human-coupled musical interaction: live voice, instrument, touch, and media signals are analyzed locally, converted into a shared musical state, and used by virtual musician agents to generate accompaniment in real time.
 
-The project is organized around a shared musical world: microphone or instrument input is analyzed locally for pitch, onset, tempo, harmony, phrase state, energy, and related musical features; independent musician modules then use that state to generate accompaniment, while a conductor layer manages density, timing, register, section structure, and musical space.
+> **Core engineering idea:** Human → Perception → Musical State → Musician Decisions → Scheduled Sound → Human
 
-The central feedback loop is:
-
-```text
-Human performance
-      ↓
-Local perception
-      ↓
-Shared musical state
-      ↓
-Musician agents + conductor
-      ↓
-Scheduled audio events
-      ↓
-Sound
-      ↓
-Human response
-      ↺
-```
+The goal is not to hide uncertainty behind an “AI” label. Timing-critical behavior belongs in deterministic audio and DSP systems. Learned models are optional higher-level components. The current reference implementation and the expanded modular architecture are documented separately so readers can distinguish **working implementation** from **engineering roadmap**.
 
 ## Engineering book
 
-The complete engineering manual is included at:
+- **Read the complete open-source book online:** [`docs/book/README.md`](docs/book/README.md)
+- **Download the Word edition:** [`docs/Reality_Bridge_Alien_Conductor_Local_AI_Band_Engineering_Book.docx`](docs/Reality_Bridge_Alien_Conductor_Local_AI_Band_Engineering_Book.docx)
+- **Architecture reference:** [`ARCHITECTURE.md`](ARCHITECTURE.md)
 
-- [`docs/Reality_Bridge_Alien_Conductor_Local_AI_Band_Engineering_Book.docx`](docs/Reality_Bridge_Alien_Conductor_Local_AI_Band_Engineering_Book.docx)
+The Word edition is reproducibly generated from the Markdown book source in this repository through GitHub Actions.
 
-The book documents the complete architecture in detail, including:
+## What the project contains
 
-- real-time audio and timing design
-- live pitch, onset, chroma, key, chord, tempo, and phrase analysis
-- the Gravity Guitar physical-model instrument
-- standalone play-along guitar architecture
-- standalone play-along piano architecture
-- local bassist and drummer modules
-- vocal harmony and call-and-response design
-- conductor and arranger logic
-- musical memory and motif handling
-- media-to-music and granular systems
-- looping and state serialization
-- browser, Python, and C++ separation of responsibilities
-- engineering telemetry and validation methodology
-- modular repository structure and implementation contracts
+The architecture separates the musical system into reusable projects so each component can operate alone or as part of a full local band:
 
-## Modular project map
+| Module | Purpose |
+|---|---|
+| **Reality Bridge Core** | Clock, event protocol, musical world state, memory, harmony and shared contracts |
+| **Reality Bridge Listener** | Pitch, onset, chroma, key, chord, tempo, timbre and phrase perception |
+| **Reality Bridge Guitar** | Play-along physical-model / generative guitar |
+| **Reality Bridge Piano** | Adaptive chord voicing, accompaniment and singer-following piano |
+| **Reality Bridge Bass** | Harmonic and rhythmic bass agent |
+| **Reality Bridge Drummer** | Groove, microtiming, fills and phrase-aware percussion |
+| **Reality Bridge Vocal** | Harmony, phrase response and vocal-bandmate architecture |
+| **Reality Bridge Granular** | Media-driven and granular texture instrument |
+| **Reality Bridge Orbit** | Spatial / gestural performance instrument |
+| **Reality Bridge Looper** | Event and audio-loop architecture |
+| **Reality Bridge Conductor** | Arrangement, density, tension, interaction and instrument allocation |
+| **Reality Bridge Band** | Full multi-agent local ensemble |
+
+## Architecture
 
 ```text
-REALITY_BRIDGE/
-├── apps/
-│   ├── conductor/
-│   ├── guitar/
-│   ├── piano/
-│   ├── bass/
-│   ├── drums/
-│   └── voice/
-├── core/
-│   ├── clock/
-│   ├── events/
-│   ├── world/
-│   ├── harmony/
-│   ├── phrase/
-│   └── memory/
-├── audio/
-│   ├── engine/
-│   ├── mixer/
-│   ├── guitar_model/
-│   ├── piano_renderer/
-│   ├── percussion/
-│   ├── synth/
-│   └── effects/
-├── perception/
-│   ├── pitch/
-│   ├── onset/
-│   ├── chroma/
-│   ├── key/
-│   ├── chord/
-│   ├── tempo/
-│   ├── timbre/
-│   └── phrase/
-├── agents/
-│   ├── conductor/
-│   ├── guitarist/
-│   ├── pianist/
-│   ├── bassist/
-│   ├── drummer/
-│   └── vocalist/
-├── models/
-├── presets/
-├── examples/
-├── tests/
-└── docs/
+Human performance / touch / media
+                │
+                ▼
+       Audio + Input Kernel
+                │
+                ▼
+       Musical Perception
+ pitch • onset • chroma • key • chord
+ tempo • phrase • timbre • energy
+                │
+                ▼
+        Shared Musical World
+ transport • harmony • human state
+ section • memory • confidence
+                │
+                ▼
+      Arranger / Conductor Layer
+                │
+     ┌──────────┼──────────┐
+     ▼          ▼          ▼
+ Guitarist   Pianist    Drummer
+     ▼          ▼          ▼
+ Bassist     Vocalist   Texture
+     └──────────┼──────────┘
+                ▼
+       Performance Event Bus
+                │
+                ▼
+       Master Musical Clock
+                │
+                ▼
+ Synthesis / Sampling / Physical Models
+                │
+                ▼
+       Mixer • FX • Safety
+                │
+                ▼
+              Sound
+                │
+                └──────────────► Human
 ```
 
-## Standalone instruments
+See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the detailed engineering view.
 
-The architecture is intentionally separable. A developer should be able to build only the piece they want:
+## Reference implementation: what is already real
 
-- **Reality Bridge Guitar** — local play-along physical-model guitar
-- **Reality Bridge Piano** — adaptive accompaniment and voicing engine
-- **Reality Bridge Bass** — harmony- and groove-aware bassist
-- **Reality Bridge Drummer** — adaptive beat and fill engine
-- **Reality Bridge Vocal** — pitch-following harmony and call/response
-- **Reality Bridge Granular** — media-driven granular instrument
-- **Reality Bridge Orbit** — touch/gesture melodic controller
-- **Reality Bridge Looper** — event and audio looping
-- **Reality Bridge Band** — the complete integrated local band
+The Sound Fixed III browser lineage documented by this project already contains substantial local music-engineering machinery, including:
 
-## Current reference implementation vs. roadmap
+- Web Audio graph and interactive audio-context startup
+- look-ahead musical scheduling
+- microphone analysis without routing the microphone directly to speakers
+- pitch estimation, chroma accumulation, key and chord inference
+- onset and phrase tracking
+- adaptive tempo estimation
+- voice-following / call-and-response behaviors
+- oscillator synthesis and percussion synthesis
+- a Karplus-Strong-style physical-model guitar system
+- alternate tunings, guitar-body personalities and sympathetic resonance logic
+- generated harmony and voice-leading
+- media audio/video analysis and media-to-music modulation
+- granular playback / freeze concepts
+- event-based loop recording
+- conductor sections, motif memory and seeded generative behavior
+- mobile-oriented audio unlock and panic behavior
+- local state export / import and preference persistence
 
-The engineering book deliberately separates what exists in the current browser reference implementation from the modular expansion plan.
+## Expanded architecture: what this repository specifies
 
-The current implementation already demonstrates important foundation pieces such as a Web Audio graph, look-ahead scheduler, physical-model-style guitar, local microphone analysis, pitch and harmony inference, phrase following, generative accompaniment, local media analysis, looping, recording, persistent state, touch instruments, and mobile audio recovery behavior.
+The engineering book extends that reference implementation into a clean multi-project local-band architecture with independent musician agents, a shared `MusicalWorld`, event contracts, a single musical clock, human-adaptation memory, native C++ audio responsibilities, Python experimentation/model responsibilities, browser/mobile targets, and explicit testing metrics.
 
-The repository architecture described in the book is the next engineering layer: extracting those coupled systems into reusable core libraries and independently replaceable musician modules.
+This expanded architecture is a **build specification and roadmap**, not a claim that every proposed learned or native component is already implemented in the browser reference file.
 
-## Design principles
+## Timing rule
 
-1. **Local first.** Core accompaniment must work without a cloud dependency.
-2. **Audio timing is sacred.** No language model or slow inference process may block the real-time audio path.
-3. **One musical clock.** All musicians schedule against the same transport.
-4. **One shared musical world.** Perception is centralized; musicians consume the same state.
-5. **Confidence matters.** Pitch, harmony, and tempo estimates are probabilistic rather than presented as certainty.
-6. **Listen before playing.** Human phrasing and available musical space are first-class signals.
-7. **Each musician is replaceable.** Guitar, piano, bass, drums, and voice should be individually usable packages.
-8. **Instrumentation over claims.** Latency, timing, accuracy, stability, and behavior should be measurable.
+The band must respond faster than language models think.
 
-## Suggested implementation stack
+The project therefore separates three kinds of intelligence:
 
-### Browser / mobile prototype
+1. **Reflex brain** — audio rendering, pitch/onset observation, beat timing, ducking and panic; millisecond-sensitive.
+2. **Musician brain** — next notes, chords, grooves, voicings and phrase responses; tens to hundreds of milliseconds.
+3. **Composer brain** — longer-range form, style and planning; seconds can be acceptable and local generative models may be used.
 
-- Web Audio API
-- MediaDevices / microphone analysis
-- Pointer and touch input
-- local persistence
-- portable single-page instrument builds
+No LLM belongs in the sample loop.
 
-### Python intelligence / research layer
+## Repository map
 
-- feature experiments
-- local model inference
-- evaluation and datasets
-- offline analysis
-- agent planning
-- research telemetry
+```text
+.
+├── README.md
+├── LICENSE
+├── CITATION.cff
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── ARCHITECTURE.md
+├── docs/
+│   ├── Reality_Bridge_Alien_Conductor_Local_AI_Band_Engineering_Book.docx
+│   └── book/
+│       ├── README.md
+│       ├── 00-front-matter.md
+│       ├── 01-system.md
+│       ├── 02-real-time-kernel.md
+│       ├── 03-listener.md
+│       ├── 04-musicians.md
+│       ├── 05-band-intelligence.md
+│       ├── 06-implementation.md
+│       ├── 07-testing-validation.md
+│       └── 08-shipping-open-project.md
+├── examples/
+│   └── README.md
+├── tests/
+│   └── README.md
+└── .github/
+    └── workflows/
+        └── publish-word-book.yml
+```
 
-### Native C++ audio layer
+## Engineering principles
 
-- device I/O
-- real-time audio graph
-- physical models
-- samplers
-- DSP and effects
-- MIDI
-- master clock and event queue
+- **One master musical clock.** Independent musician timers create drift.
+- **Confidence is data.** Key/chord guesses must carry confidence rather than being treated as facts.
+- **Audio work never waits for AI.** No network request, LLM, filesystem operation or UI task belongs in a real-time render callback.
+- **Musicians negotiate space.** Arrangement considers register, density, rhythm, duration, dynamics, stereo placement and timbre.
+- **Human performance remains the center.** The machine listens and reacts rather than forcing the performer onto a rigid backing track.
+- **Claims stay measurable.** Latency, cents error, tempo error, chord accuracy, collisions, interruptions, repetition and response timing should be tested.
 
-## Project status
+## Open-source license
 
-This repository begins as the public engineering and architecture publication for Reality Bridge / Alien Conductor. It is designed to grow from the documented browser ancestry into a modular open local-band implementation.
-
-## Author / project lineage
-
-Reality Bridge / Alien Conductor is part of the broader body of experimental engineering work published through the NavisWORLD project portfolio.
-
-## License
-
-Released under the **MIT License**. See [`LICENSE`](LICENSE).
+This repository is released under the **MIT License**. See [`LICENSE`](LICENSE).
 
 Copyright © 2026 Cory Davis (NavisWORLD).
+
+## Citation
+
+Citation metadata is provided in [`CITATION.cff`](CITATION.cff). If this project contributes to research, teaching, creative work, or another engineering implementation, attribution is appreciated.
+
+## Contributing
+
+Contributions are welcome. Start with [`CONTRIBUTING.md`](CONTRIBUTING.md), preserve the distinction between measured behavior and speculative roadmap items, and include tests or evidence for engineering claims whenever possible.
+
+---
+
+**Project definition:** Alien Conductor turns the computer from a device that plays music when commanded into a collection of local digital musicians that listen before deciding what to play.
