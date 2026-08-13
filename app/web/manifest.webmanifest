@@ -1,0 +1,20 @@
+{
+  "name": "Reality Bridge Alien Conductor",
+  "short_name": "Alien Conductor",
+  "description": "Local-first adaptive music conductor, gravity guitar, live voice companion, media transmutation and generative performance instrument.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#040a0b",
+  "theme_color": "#07100f",
+  "categories": ["music", "entertainment", "productivity"],
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
