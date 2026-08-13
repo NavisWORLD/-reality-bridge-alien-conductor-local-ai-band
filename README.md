@@ -10,6 +10,23 @@ The system is designed around human-coupled musical interaction: live voice, ins
 
 The goal is not to hide uncertainty behind an “AI” label. Timing-critical behavior belongs in deterministic audio and DSP systems. Learned models are optional higher-level components. The current reference implementation and the expanded modular architecture are documented separately so readers can distinguish **working implementation** from **engineering roadmap**.
 
+## Download v0.1.0
+
+The cross-platform application release is published at [`v0.1.0`](https://github.com/NavisWORLD/-reality-bridge-alien-conductor-local-ai-band/releases/tag/v0.1.0).
+
+| Platform | Release artifact | Status |
+|---|---|---|
+| Windows x64 | [`Reality-Bridge-Alien-Conductor-Setup-0.1.0-x64.exe`](https://github.com/NavisWORLD/-reality-bridge-alien-conductor-local-ai-band/releases/download/v0.1.0/Reality-Bridge-Alien-Conductor-Setup-0.1.0-x64.exe) | ✅ One-click NSIS installer |
+| macOS Apple Silicon + Intel | [`Reality-Bridge-Alien-Conductor-0.1.0-universal.dmg`](https://github.com/NavisWORLD/-reality-bridge-alien-conductor-local-ai-band/releases/download/v0.1.0/Reality-Bridge-Alien-Conductor-0.1.0-universal.dmg) | ✅ Universal DMG |
+| macOS app archive | [`Reality-Bridge-Alien-Conductor-0.1.0-universal.zip`](https://github.com/NavisWORLD/-reality-bridge-alien-conductor-local-ai-band/releases/download/v0.1.0/Reality-Bridge-Alien-Conductor-0.1.0-universal.zip) | ✅ `.app` archive |
+| Android | [`Reality-Bridge-Alien-Conductor-Android-v0.1.0.apk`](https://github.com/NavisWORLD/-reality-bridge-alien-conductor-local-ai-band/releases/download/v0.1.0/Reality-Bridge-Alien-Conductor-Android-v0.1.0.apk) | ✅ Installable debug-signed APK |
+| iOS Simulator | [`Reality-Bridge-Alien-Conductor-iOS-Simulator-v0.1.0.zip`](https://github.com/NavisWORLD/-reality-bridge-alien-conductor-local-ai-band/releases/download/v0.1.0/Reality-Bridge-Alien-Conductor-iOS-Simulator-v0.1.0.zip) | ✅ Compiled simulator `.app` |
+| iPhone device package | [`Reality-Bridge-Alien-Conductor-iOS-Unsigned-v0.1.0.ipa`](https://github.com/NavisWORLD/-reality-bridge-alien-conductor-local-ai-band/releases/download/v0.1.0/Reality-Bridge-Alien-Conductor-iOS-Unsigned-v0.1.0.ipa) | ✅ Built unsigned IPA |
+
+The iPhone device IPA is intentionally **unsigned**. Normal installation on a physical iPhone and App Store distribution require an Apple Developer certificate and provisioning profile owned by the publisher. Windows Authenticode signing, macOS Developer ID/notarization, and production Android store signing likewise require private publisher credentials and are not committed to this public repository.
+
+The release pipeline is reproducible through [`.github/workflows/release-binaries.yml`](.github/workflows/release-binaries.yml). It verifies the pinned Sound Fixed III source, then builds Windows, macOS, Android, and iOS artifacts before publishing the GitHub Release.
+
 ## Engineering book
 
 - **Read the complete open-source book online:** [`docs/book/README.md`](docs/book/README.md)
@@ -134,8 +151,25 @@ No LLM belongs in the sample loop.
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── ARCHITECTURE.md
+├── package.json
+├── capacitor.config.json
+├── desktop/
+│   └── main.cjs
+├── app/
+│   └── web/
+│       ├── manifest.webmanifest
+│       ├── sw.js
+│       └── icons/
+├── scripts/
+│   ├── fetch-web-source.mjs
+│   ├── prepare-native.mjs
+│   └── smoke-test.mjs
+├── mobile/
+│   └── README.md
 ├── docs/
 │   ├── Reality_Bridge_Alien_Conductor_Local_AI_Band_Engineering_Book.docx
+│   ├── release/
+│   │   └── RELEASE_NOTES.md
 │   └── book/
 │       ├── README.md
 │       ├── 00-front-matter.md
@@ -148,12 +182,11 @@ No LLM belongs in the sample loop.
 │       ├── 07-testing-validation.md
 │       └── 08-shipping-open-project.md
 ├── examples/
-│   └── README.md
 ├── tests/
-│   └── README.md
 └── .github/
     └── workflows/
-        └── publish-word-book.yml
+        ├── publish-word-book.yml
+        └── release-binaries.yml
 ```
 
 ## Engineering principles
