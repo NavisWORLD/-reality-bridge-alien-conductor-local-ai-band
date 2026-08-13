@@ -12,8 +12,8 @@
   "scripts": {
     "check": "node scripts/smoke-test.mjs",
     "desktop": "electron .",
-    "dist:win": "electron-builder --win",
-    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win --publish never",
+    "dist:mac": "electron-builder --mac --publish never",
     "mobile:add:android": "cap add android",
     "mobile:add:ios": "cap add ios",
     "mobile:sync": "cap sync",
