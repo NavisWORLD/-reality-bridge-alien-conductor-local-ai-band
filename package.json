@@ -1,0 +1,80 @@
+{
+  "name": "reality-bridge-alien-conductor",
+  "version": "0.1.0",
+  "description": "Local-first adaptive music conductor and virtual-band application.",
+  "author": "Cory Davis (NavisWORLD)",
+  "license": "MIT",
+  "private": false,
+  "main": "desktop/main.cjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "node scripts/smoke-test.mjs",
+    "desktop": "electron .",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac",
+    "mobile:add:android": "cap add android",
+    "mobile:add:ios": "cap add ios",
+    "mobile:sync": "cap sync",
+    "prepare:web": "node scripts/fetch-web-source.mjs"
+  },
+  "dependencies": {
+    "@capacitor/core": "8.4.2"
+  },
+  "devDependencies": {
+    "@capacitor/android": "8.4.2",
+    "@capacitor/cli": "8.4.2",
+    "@capacitor/ios": "8.4.2",
+    "electron": "43.2.0",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "world.navis.realitybridge.alienconductor",
+    "productName": "Reality Bridge Alien Conductor",
+    "asar": true,
+    "files": [
+      "desktop/**/*",
+      "app/web/**/*",
+      "package.json",
+      "LICENSE"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "artifactName": "Reality-Bridge-Alien-Conductor-Setup-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Reality Bridge Alien Conductor"
+    },
+    "mac": {
+      "target": [
+        {"target": "dmg", "arch": ["universal"]},
+        {"target": "zip", "arch": ["universal"]}
+      ],
+      "category": "public.app-category.music",
+      "artifactName": "Reality-Bridge-Alien-Conductor-${version}-${arch}.${ext}",
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false,
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "Reality Bridge uses microphone input only when you enable Live Voice so it can analyze musical features locally on your device."
+      }
+    },
+    "dmg": {
+      "sign": false
+    }
+  }
+}
