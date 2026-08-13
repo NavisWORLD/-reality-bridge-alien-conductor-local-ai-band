@@ -129,7 +129,7 @@ jobs:
       - run: npx cap sync ios
       - name: Build iPhone Simulator app
         run: |
-          xcodebuild -workspace ios/App/App.xcworkspace \
+          xcodebuild -project ios/App/App.xcodeproj \
             -scheme App -configuration Release -sdk iphonesimulator \
             -derivedDataPath build-simulator CODE_SIGNING_ALLOWED=NO
           mkdir -p dist
@@ -138,7 +138,7 @@ jobs:
             dist/Reality-Bridge-Alien-Conductor-iOS-Simulator-v0.1.0.zip
       - name: Build unsigned iPhone device IPA payload
         run: |
-          xcodebuild -workspace ios/App/App.xcworkspace \
+          xcodebuild -project ios/App/App.xcodeproj \
             -scheme App -configuration Release -sdk iphoneos \
             -derivedDataPath build-device CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO
           rm -rf Payload
