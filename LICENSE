@@ -1,21 +1,59 @@
-MIT License
+# Cory Davis Audio / Neural Instrument Research Source Rights Reservation v1.0
 
-Copyright (c) 2026 Cory Davis (NavisWORLD)
+Copyright © 2026 Cory Shane Davis / NavisWORLD. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Effective for covered material first distributed or materially revised under this notice on or after 2026-08-16.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## 1. Scope
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+This notice applies only to original copyrightable material owned by Cory Shane Davis / NavisWORLD that is first distributed under this notice, materially revised after the effective date under this notice, or expressly identified as covered by it.
+
+It does not relicense third-party material and does not revoke, alter, or narrow rights validly granted for earlier copies or earlier versions under MIT, Apache-2.0, GPL, Creative Commons, or any other prior license. See `LICENSE_HISTORY.md`.
+
+## 2. Public source access is not a general reuse license
+
+Except for rights necessarily granted by GitHub's Terms of Service and rights independently provided by applicable law, no permission is granted to reproduce, copy, modify, adapt, translate, port, distribute, publish, sublicense, sell, commercialize, host as a service, incorporate into another product or service, or prepare derivative works from covered material.
+
+No permission is granted to create a translated, ported, or reimplemented derivative from the protected expression of covered source code, audio/DSP code, user interfaces, visual designs, documentation, diagrams, specifications, tests, examples, musical mappings, or other covered authorship.
+
+## 3. Commercial and model-development restrictions
+
+Without a separate written agreement signed by Cory Shane Davis, no permission is granted to use covered material for commercial products or services, paid or revenue-generating deployments, commercial research and development, OEM integration, hosted services, commercial benchmarking, commercial sample or preset packs derived from covered material, or commercial AI/ML development.
+
+No permission is granted for commercial AI/ML training, fine-tuning, distillation, synthetic-data generation, embedding, retrieval, model-development, cloning, evaluation, or dataset construction using covered material except where applicable law independently permits it or a separate signed agreement expressly authorizes it.
+
+## 4. Patent, method, concept, and trademark boundary
+
+No patent license is granted, whether express, implied, by estoppel, or otherwise.
+
+No permission is granted to use COSMOS, CST, Reality Bridge, Alien Conductor, Cosmic Conductor, NavisWORLD, or related names or marks as trademarks or source identifiers except as applicable law permits for truthful nominative reference.
+
+Copyright does not itself protect abstract ideas, facts, mathematical principles, scientific laws, procedures, processes, systems, algorithms, methods of operation, concepts, principles, or discoveries. Nothing in this notice claims otherwise. Independent implementation of unprotected ideas may be lawful unless another right, such as a valid patent, contract, trade-secret obligation, trademark right, or other applicable law, restricts it.
+
+## 5. Audio, voice, biometric, and personal data
+
+This repository's software rights do not grant rights in any person's voice, performance, biometric, physiological, image, medical, consent-sensitive, or other personal data. Data collection, processing, retention, disclosure, training, cloning, and reuse require their own lawful basis and permissions.
+
+## 6. Commercial licensing
+
+Commercial, enterprise, partnership, OEM, hosted-service, integration, acquisition, patent, data, branding, or other additional rights require a separate written agreement identifying the material and scope of permission and signed by Cory Shane Davis and the counterparty.
+
+Email, direct messages, issues, pull requests, stars, forks, downloads, employment, contracting, verbal statements, or silence do not by themselves grant additional rights or transfer ownership.
+
+## 7. Historical license boundary
+
+Earlier copies and releases validly distributed under MIT, Apache-2.0, GPL, Creative Commons, or other licenses remain governed by those grants. This rights reservation is prospective. It establishes the licensing boundary for new or materially revised Cory-owned material from the effective date forward.
+
+## 8. Third-party material
+
+Third-party libraries, frameworks, SDKs, models, datasets, samples, recordings, documentation, dependencies, trademarks, and other materials remain governed by their respective licenses and terms. Nothing here expands Cory Shane Davis's rights in third-party material.
+
+## 9. Contributions
+
+No external copyrightable contribution will be incorporated into covered proprietary material unless the contributor and Cory Shane Davis first execute a written contribution, assignment, or other agreement sufficient to establish the rights needed for incorporation and future licensing. Merely opening a pull request does not transfer copyright ownership.
+
+## 10. Disclaimer
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, COVERED MATERIAL IS PROVIDED "AS IS" WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND. CORY SHANE DAVIS / NAVISWORLD DISCLAIMS LIABILITY FOR DAMAGES ARISING FROM USE OF OR RELIANCE ON THE MATERIAL EXCEPT TO THE EXTENT LIABILITY CANNOT LAWFULLY BE DISCLAIMED.
+
+For licensing inquiries: Cory Shane Davis / @NavisWORLD.
