@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use or build on this project, please cite the project and its engineering book."
+message: "If you reference this project, please cite the project and its engineering book. Rights for the exact version used are governed by LICENSE and LICENSE_HISTORY.md."
 title: "Reality Bridge / Alien Conductor: Local AI Band Engineering Architecture"
 type: software
 authors:
@@ -8,6 +8,5 @@ authors:
     alias: NavisWORLD
 repository-code: "https://github.com/NavisWORLD/-reality-bridge-alien-conductor-local-ai-band"
 url: "https://github.com/NavisWORLD/-reality-bridge-alien-conductor-local-ai-band"
-license: MIT
 date-released: 2026-08-12
 version: 1.0.0
