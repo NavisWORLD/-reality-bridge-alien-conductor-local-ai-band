@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Local-first adaptive music conductor and virtual-band application.",
   "author": "Cory Davis (NavisWORLD)",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "private": false,
   "main": "desktop/main.cjs",
   "engines": {
@@ -37,7 +37,9 @@
       "desktop/**/*",
       "app/web/**/*",
       "package.json",
-      "LICENSE"
+      "LICENSE",
+      "LICENSE_HISTORY.md",
+      "COMMERCIAL_RIGHTS.md"
     ],
     "directories": {
       "output": "dist"
