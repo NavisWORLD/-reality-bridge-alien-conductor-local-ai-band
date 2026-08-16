@@ -2,42 +2,55 @@
 
 ## Local AI Band + Real-Time Sing-and-Play Accompaniment
 
-**Reality Bridge // Alien Conductor** is an open-source engineering project for turning a local computer, browser, or mobile device into a responsive collection of digital musicians that listen before deciding what to play.
+**Reality Bridge // Alien Conductor** is a source-available engineering and research project for turning a local computer, browser, or mobile device into a responsive collection of digital musicians that listen before deciding what to play.
 
 The system is designed around human-coupled musical interaction: live voice, instrument, touch, and media signals are analyzed locally, converted into a shared musical state, and used by virtual musician agents to generate accompaniment in real time.
 
 > **Core engineering idea:** Human → Perception → Musical State → Musician Decisions → Scheduled Sound → Human
 
-The goal is not to hide uncertainty behind an “AI” label. Timing-critical behavior belongs in deterministic audio and DSP systems. Learned models are optional higher-level components. The current reference implementation and the expanded modular architecture are documented separately so readers can distinguish **working implementation** from **engineering roadmap**.
+## Rights and provenance first
 
-## Download v0.1.0
+Copyright © 2026 Cory Shane Davis / NavisWORLD.
 
-The cross-platform application release is published at [`v0.1.0`](https://github.com/NavisWORLD/-reality-bridge-alien-conductor-local-ai-band/releases/tag/v0.1.0).
+**Current rights boundary:** newly authored or materially revised Cory-owned material distributed under the current `LICENSE` on or after **2026-08-16** is governed by the **Cory Davis Audio / Neural Instrument Research Source Rights Reservation v1.0** unless a file expressly states different terms.
+
+Public visibility is not a general reuse license for that covered current material. Commercial products, hosted services, OEM integration, commercial AI/ML development, commercial redistribution, derivative implementations based on protected expression, and other commercial exploitation require separate written authorization where the current `LICENSE` states so.
+
+**Historical boundary:** the `v0.1.0` release and repository state through commit `a96e0c528c77255f6b69ed4bd49dfe8be361bd2b` were distributed under the MIT License. Valid MIT rights for those historical copies remain intact. They are not revoked or rewritten.
+
+See:
+
+- [`LICENSE`](LICENSE) - current prospective rights reservation
+- [`LICENSE_HISTORY.md`](LICENSE_HISTORY.md) - exact historical licensing boundary
+- [`COMMERCIAL_RIGHTS.md`](COMMERCIAL_RIGHTS.md) - commercial licensing path
+- [`CORY_DAVIS_IP_AND_ACCESS_NOTICE.md`](CORY_DAVIS_IP_AND_ACCESS_NOTICE.md) - IP/access notice
+
+Copyright protects original expression, not abstract ideas, systems, algorithms, mathematical principles, or methods by themselves. Third-party code, frameworks, SDKs, samples, models, and other materials remain under their own licenses and terms.
+
+## Historical v0.1.0 download
+
+The cross-platform application release remains available at [`v0.1.0`](https://github.com/NavisWORLD/-reality-bridge-alien-conductor-local-ai-band/releases/tag/v0.1.0). That historical release keeps its historical MIT terms.
 
 | Platform | Release artifact | Status |
 |---|---|---|
-| Windows x64 | [`Reality-Bridge-Alien-Conductor-Setup-0.1.0-x64.exe`](https://github.com/NavisWORLD/-reality-bridge-alien-conductor-local-ai-band/releases/download/v0.1.0/Reality-Bridge-Alien-Conductor-Setup-0.1.0-x64.exe) | ✅ One-click NSIS installer |
-| macOS Apple Silicon + Intel | [`Reality-Bridge-Alien-Conductor-0.1.0-universal.dmg`](https://github.com/NavisWORLD/-reality-bridge-alien-conductor-local-ai-band/releases/download/v0.1.0/Reality-Bridge-Alien-Conductor-0.1.0-universal.dmg) | ✅ Universal DMG |
-| macOS app archive | [`Reality-Bridge-Alien-Conductor-0.1.0-universal.zip`](https://github.com/NavisWORLD/-reality-bridge-alien-conductor-local-ai-band/releases/download/v0.1.0/Reality-Bridge-Alien-Conductor-0.1.0-universal.zip) | ✅ `.app` archive |
-| Android | [`Reality-Bridge-Alien-Conductor-Android-v0.1.0.apk`](https://github.com/NavisWORLD/-reality-bridge-alien-conductor-local-ai-band/releases/download/v0.1.0/Reality-Bridge-Alien-Conductor-Android-v0.1.0.apk) | ✅ Installable debug-signed APK |
-| iOS Simulator | [`Reality-Bridge-Alien-Conductor-iOS-Simulator-v0.1.0.zip`](https://github.com/NavisWORLD/-reality-bridge-alien-conductor-local-ai-band/releases/download/v0.1.0/Reality-Bridge-Alien-Conductor-iOS-Simulator-v0.1.0.zip) | ✅ Compiled simulator `.app` |
-| iPhone device package | [`Reality-Bridge-Alien-Conductor-iOS-Unsigned-v0.1.0.ipa`](https://github.com/NavisWORLD/-reality-bridge-alien-conductor-local-ai-band/releases/download/v0.1.0/Reality-Bridge-Alien-Conductor-iOS-Unsigned-v0.1.0.ipa) | ✅ Built unsigned IPA |
+| Windows x64 | `Reality-Bridge-Alien-Conductor-Setup-0.1.0-x64.exe` | One-click NSIS installer |
+| macOS Apple Silicon + Intel | `Reality-Bridge-Alien-Conductor-0.1.0-universal.dmg` | Universal DMG |
+| macOS app archive | `Reality-Bridge-Alien-Conductor-0.1.0-universal.zip` | `.app` archive |
+| Android | `Reality-Bridge-Alien-Conductor-Android-v0.1.0.apk` | Installable debug-signed APK |
+| iOS Simulator | `Reality-Bridge-Alien-Conductor-iOS-Simulator-v0.1.0.zip` | Compiled simulator `.app` |
+| iPhone device package | `Reality-Bridge-Alien-Conductor-iOS-Unsigned-v0.1.0.ipa` | Built unsigned IPA |
 
-The iPhone device IPA is intentionally **unsigned**. Normal installation on a physical iPhone and App Store distribution require an Apple Developer certificate and provisioning profile owned by the publisher. Windows Authenticode signing, macOS Developer ID/notarization, and production Android store signing likewise require private publisher credentials and are not committed to this public repository.
+The iPhone device IPA is intentionally unsigned. Physical-device and store distribution require publisher signing credentials that are not committed to this repository.
 
-The release pipeline is reproducible through [`.github/workflows/release-binaries.yml`](.github/workflows/release-binaries.yml). It verifies the pinned Sound Fixed III source, then builds Windows, macOS, Android, and iOS artifacts before publishing the GitHub Release.
+## Engineering book and architecture
 
-## Engineering book
+- [`docs/book/README.md`](docs/book/README.md)
+- [`docs/Reality_Bridge_Alien_Conductor_Local_AI_Band_Engineering_Book.docx`](docs/Reality_Bridge_Alien_Conductor_Local_AI_Band_Engineering_Book.docx)
+- [`ARCHITECTURE.md`](ARCHITECTURE.md)
 
-- **Read the complete open-source book online:** [`docs/book/README.md`](docs/book/README.md)
-- **Download the Word edition:** [`docs/Reality_Bridge_Alien_Conductor_Local_AI_Band_Engineering_Book.docx`](docs/Reality_Bridge_Alien_Conductor_Local_AI_Band_Engineering_Book.docx)
-- **Architecture reference:** [`ARCHITECTURE.md`](ARCHITECTURE.md)
-
-The Word edition is reproducibly generated from the Markdown book source in this repository through GitHub Actions.
+Historical documentation may describe the earlier MIT/open-source generation. Rights for the exact copy or revision used are determined by its applicable license and the chronology in `LICENSE_HISTORY.md`.
 
 ## What the project contains
-
-The architecture separates the musical system into reusable projects so each component can operate alone or as part of a full local band:
 
 | Module | Purpose |
 |---|---|
@@ -99,118 +112,39 @@ Human performance / touch / media
                 └──────────────► Human
 ```
 
-See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the detailed engineering view.
+## Reference implementation
 
-## Reference implementation: what is already real
+The browser lineage contains local music-engineering machinery including Web Audio routing, look-ahead musical scheduling, microphone analysis, pitch estimation, chroma/key/chord inference, onset and phrase tracking, adaptive tempo estimation, call-and-response behavior, oscillator/percussion synthesis, Karplus-Strong-style guitar modeling, generated harmony, media analysis, granular concepts, event-based loop recording, motif memory, seeded generative behavior, mobile audio unlock, local state export/import, and preference persistence.
 
-The Sound Fixed III browser lineage documented by this project already contains substantial local music-engineering machinery, including:
-
-- Web Audio graph and interactive audio-context startup
-- look-ahead musical scheduling
-- microphone analysis without routing the microphone directly to speakers
-- pitch estimation, chroma accumulation, key and chord inference
-- onset and phrase tracking
-- adaptive tempo estimation
-- voice-following / call-and-response behaviors
-- oscillator synthesis and percussion synthesis
-- a Karplus-Strong-style physical-model guitar system
-- alternate tunings, guitar-body personalities and sympathetic resonance logic
-- generated harmony and voice-leading
-- media audio/video analysis and media-to-music modulation
-- granular playback / freeze concepts
-- event-based loop recording
-- conductor sections, motif memory and seeded generative behavior
-- mobile-oriented audio unlock and panic behavior
-- local state export / import and preference persistence
-
-## Expanded architecture: what this repository specifies
-
-The engineering book extends that reference implementation into a clean multi-project local-band architecture with independent musician agents, a shared `MusicalWorld`, event contracts, a single musical clock, human-adaptation memory, native C++ audio responsibilities, Python experimentation/model responsibilities, browser/mobile targets, and explicit testing metrics.
-
-This expanded architecture is a **build specification and roadmap**, not a claim that every proposed learned or native component is already implemented in the browser reference file.
+The expanded architecture specifies a multi-project local-band design with independent musician agents, a shared musical world, event contracts, a single musical clock, adaptive memory, native audio responsibilities, Python experimentation/model responsibilities, browser/mobile targets, and explicit testing metrics.
 
 ## Timing rule
 
 The band must respond faster than language models think.
 
-The project therefore separates three kinds of intelligence:
-
-1. **Reflex brain** — audio rendering, pitch/onset observation, beat timing, ducking and panic; millisecond-sensitive.
-2. **Musician brain** — next notes, chords, grooves, voicings and phrase responses; tens to hundreds of milliseconds.
-3. **Composer brain** — longer-range form, style and planning; seconds can be acceptable and local generative models may be used.
+1. **Reflex brain** - audio rendering, pitch/onset observation, beat timing, ducking and panic.
+2. **Musician brain** - next notes, chords, grooves, voicings and phrase responses.
+3. **Composer brain** - longer-range form, style and planning.
 
 No LLM belongs in the sample loop.
 
-## Repository map
-
-```text
-.
-├── README.md
-├── LICENSE
-├── CITATION.cff
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
-├── ARCHITECTURE.md
-├── package.json
-├── capacitor.config.json
-├── desktop/
-│   └── main.cjs
-├── app/
-│   └── web/
-│       ├── manifest.webmanifest
-│       ├── sw.js
-│       └── icons/
-├── scripts/
-│   ├── fetch-web-source.mjs
-│   ├── prepare-native.mjs
-│   └── smoke-test.mjs
-├── mobile/
-│   └── README.md
-├── docs/
-│   ├── Reality_Bridge_Alien_Conductor_Local_AI_Band_Engineering_Book.docx
-│   ├── release/
-│   │   └── RELEASE_NOTES.md
-│   └── book/
-│       ├── README.md
-│       ├── 00-front-matter.md
-│       ├── 01-system.md
-│       ├── 02-real-time-kernel.md
-│       ├── 03-listener.md
-│       ├── 04-musicians.md
-│       ├── 05-band-intelligence.md
-│       ├── 06-implementation.md
-│       ├── 07-testing-validation.md
-│       └── 08-shipping-open-project.md
-├── examples/
-├── tests/
-└── .github/
-    └── workflows/
-        ├── publish-word-book.yml
-        └── release-binaries.yml
-```
-
 ## Engineering principles
 
-- **One master musical clock.** Independent musician timers create drift.
-- **Confidence is data.** Key/chord guesses must carry confidence rather than being treated as facts.
-- **Audio work never waits for AI.** No network request, LLM, filesystem operation or UI task belongs in a real-time render callback.
-- **Musicians negotiate space.** Arrangement considers register, density, rhythm, duration, dynamics, stereo placement and timbre.
-- **Human performance remains the center.** The machine listens and reacts rather than forcing the performer onto a rigid backing track.
-- **Claims stay measurable.** Latency, cents error, tempo error, chord accuracy, collisions, interruptions, repetition and response timing should be tested.
-
-## Open-source license
-
-This repository is released under the **MIT License**. See [`LICENSE`](LICENSE).
-
-Copyright © 2026 Cory Davis (NavisWORLD).
+- One master musical clock.
+- Confidence is data.
+- Audio work never waits for AI.
+- Musicians negotiate space.
+- Human performance remains the center.
+- Claims stay measurable.
+- Public provenance and current commercial rights are kept separate and explicit.
 
 ## Citation
 
-Citation metadata is provided in [`CITATION.cff`](CITATION.cff). If this project contributes to research, teaching, creative work, or another engineering implementation, attribution is appreciated.
+Citation metadata is provided in [`CITATION.cff`](CITATION.cff). Citation or attribution does not itself grant reuse or commercial rights beyond the license governing the exact material used.
 
 ## Contributing
 
-Contributions are welcome. Start with [`CONTRIBUTING.md`](CONTRIBUTING.md), preserve the distinction between measured behavior and speculative roadmap items, and include tests or evidence for engineering claims whenever possible.
+Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before submitting anything. The protected current generation does not automatically accept copyrightable outside contributions without an appropriate written rights agreement.
 
 ---
 
