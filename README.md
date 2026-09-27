@@ -2,30 +2,19 @@
 
 ## Local AI Band + Real-Time Sing-and-Play Accompaniment
 
-**Reality Bridge // Alien Conductor** is a source-available engineering and research project for turning a local computer, browser, or mobile device into a responsive collection of digital musicians that listen before deciding what to play.
+**Reality Bridge // Alien Conductor** is an open-source engineering and research project for turning a local computer, browser, or mobile device into a responsive collection of digital musicians that listen before deciding what to play.
 
 The system is designed around human-coupled musical interaction: live voice, instrument, touch, and media signals are analyzed locally, converted into a shared musical state, and used by virtual musician agents to generate accompaniment in real time.
 
 > **Core engineering idea:** Human → Perception → Musical State → Musician Decisions → Scheduled Sound → Human
 
-## Rights and provenance first
+## Open-source rights and provenance
 
 Copyright © 2026 Cory Shane Davis / NavisWORLD.
 
-**Current rights boundary:** newly authored or materially revised Cory-owned material distributed under the current `LICENSE` on or after **2026-08-16** is governed by the **Cory Davis Audio / Neural Instrument Research Source Rights Reservation v1.0** unless a file expressly states different terms.
+On adoption of this prospective transition, Cory-owned original software and documentation included in the new release are licensed under [Apache License 2.0](LICENSE) except individually marked components. It permits commercial use, modification and redistribution under its conditions. Copyright stays with its author. Other people's code, models, datasets, samples and external performances have their own terms.
 
-Public visibility is not a general reuse license for that covered current material. Commercial products, hosted services, OEM integration, commercial AI/ML development, commercial redistribution, derivative implementations based on protected expression, and other commercial exploitation require separate written authorization where the current `LICENSE` states so.
-
-**Historical boundary:** the `v0.1.0` release and repository state through commit `a96e0c528c77255f6b69ed4bd49dfe8be361bd2b` were distributed under the MIT License. Valid MIT rights for those historical copies remain intact. They are not revoked or rewritten.
-
-See:
-
-- [`LICENSE`](LICENSE) - current prospective rights reservation
-- [`LICENSE_HISTORY.md`](LICENSE_HISTORY.md) - exact historical licensing boundary
-- [`COMMERCIAL_RIGHTS.md`](COMMERCIAL_RIGHTS.md) - commercial licensing path
-- [`CORY_DAVIS_IP_AND_ACCESS_NOTICE.md`](CORY_DAVIS_IP_AND_ACCESS_NOTICE.md) - IP/access notice
-
-Copyright protects original expression, not abstract ideas, systems, algorithms, mathematical principles, or methods by themselves. Third-party code, frameworks, SDKs, samples, models, and other materials remain under their own licenses and terms.
+The original v0.1.0 MIT release remains MIT. The subsequent source-available period remains a distinct historical grant. See [LICENSE_HISTORY.md](LICENSE_HISTORY.md), [COMMERCIAL_RIGHTS.md](COMMERCIAL_RIGHTS.md) and [NOTICE](NOTICE).
 
 ## Historical v0.1.0 download
 
